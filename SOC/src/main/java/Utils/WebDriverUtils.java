@@ -1,10 +1,7 @@
 package Utils;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,12 +21,26 @@ public class WebDriverUtils {
         esperarElementoVisivel(by);
         driver.findElement(by).click();
     }
+    public void digitarTexto(By by, String texto){
+        esperarElementoVisivel(by);
+        driver.findElement(by).sendKeys(texto);
+    }
+    public void pressEnter(By by){
+        esperarWebElementoLocated(by);
+        driver.findElement(by).sendKeys(Keys.ENTER);
+    }
     public void esperarElementoVisivel(By by){
         try{
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         } catch (TimeoutException e){
             Assert.fail("Elemento não encontrado dentro do tempo esperado " + by + ", erro: " + e);
         }
+    }
+    public void clicarListaDeElementos(By by, Integer numeroDaLista){
+        List<WebElement> elements = driver.findElements(by);
+        WebElement element = elements.get(numeroDaLista);
+        esperarWebElementoClicavel(element);
+        element.click();
     }
     public void esperarWebElementoClicavel(WebElement element){
         try{
