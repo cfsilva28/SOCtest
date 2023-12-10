@@ -1,7 +1,6 @@
 package Base;
 
-import org.junit.After;
-import org.junit.Before;
+import Utils.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,6 +11,7 @@ public class TestBase {
     public WebDriver inicializarDriver() {
         driver = new ChromeDriver();
         driver.get("https://www.soc.com.br/");
+        Util.setupChromeDriver();
         return driver;
     }
 

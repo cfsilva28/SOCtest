@@ -14,6 +14,9 @@ public class HomeSocPage{
         webUtils.clicar(By.cssSelector(".elementor-sticky__spacer .elementor-element-a224482"));
         return this;
     }
+    public void verificarSePresenteNaPesquisa(){
+        webUtils.esperarElementoVisivel(By.cssSelector("h2.elementor-heading-title.elementor-size-default"));
+    }
 
     public void preencherCampoPesquisa(String pesquisa){
         webUtils.digitarTexto(By.cssSelector("input.elementor-search-form__input[type='search']"),pesquisa);

@@ -1,26 +1,35 @@
 package Steps;
 
+
+import Base.TestBase;
 import Pages.HomeSocPage;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Quando;
-import org.openqa.selenium.WebDriver;
+import io.cucumber.java.After;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
-public class HomeSocSteps {
-    WebDriver driver;
+public class HomeSocSteps  extends TestBase {
 
-    public HomeSocSteps() {
-    }
+    public HomeSocPage homePage;
 
-    public HomeSocSteps(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    @Dado("que eu estou na pagina inicial do site")
+    @Given("que o usuario esteja pagina inicial do site")
     public void acessarPagina() {
-        new HomeSocPage(driver).abiriNavegador("https://www.soc.com.br/");
+        homePage = new HomeSocPage(inicializarDriver());
     }
-    @Quando("clicar na lupa de pesquisa")
+    @When("clicar na lupa de pesquisa")
     public void pesquisar() {
         new HomeSocPage(driver).ClicarLupa();
     }
+
+    @And("informar o {string}")
+    public void informar_o(String pesquisa){
+        homePage.preencherCampoPesquisa(pesquisa);
+    }
+
+    @Then("exibir o resultado da pesquisa")
+    public void exibe_resultado_pesquisa(){homePage.verificarSePresenteNaPesquisa();}
+
+    @After
+    public void finalizar(){fechaDriver();}
 }
