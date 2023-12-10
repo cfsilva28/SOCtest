@@ -1,5 +1,6 @@
 package Utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 
 public class Util {
@@ -9,6 +10,6 @@ public class Util {
     private Util() {
     }
     public static void setupChromeDriver() {
-       // WebDriverManager.chromedriver().setup();
+       WebDriverManager.chromedriver().setup();
     }
 }

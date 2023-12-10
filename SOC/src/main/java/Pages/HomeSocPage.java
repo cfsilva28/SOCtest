@@ -11,7 +11,7 @@ public class HomeSocPage{
         this.webUtils = new WebDriverUtils(driver);
     }
     public HomeSocPage ClicarLupa() {
-        webUtils.clicar(By.cssSelector(".elementor-sticky__spacer .elementor-element-a224482"));
+        webUtils.clicar(By.cssSelector("form.elementor-search-form .elementor-search-form__toggle"));
         return this;
     }
     public void verificarSePresenteNaPesquisa(){
