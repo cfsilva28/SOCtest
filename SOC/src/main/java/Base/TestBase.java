@@ -11,6 +11,7 @@ public class TestBase {
     public WebDriver inicializarDriver() {
         driver = new ChromeDriver();
         driver.get("https://www.soc.com.br/");
+        driver.manage().window().maximize();
         Util.setupChromeDriver();
         return driver;
     }

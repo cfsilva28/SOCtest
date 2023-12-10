@@ -74,6 +74,13 @@ public class WebDriverUtils {
         Actions action = new Actions(driver);
         action.moveToElement(element).moveToElement(element).click().build().perform();
     }
+    public void clicarBotaoListaJavaScript(By by, Integer numero){
+        List<WebElement> elements = driver.findElements(by);
+        WebElement element = elements.get(numero);
+
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", element);
+    }
 
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshotPNG() {
