@@ -14,7 +14,7 @@ public class WebDriverUtils {
 
     public WebDriverUtils(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver,Duration.ofMillis(1000L));
     }
 
     public void click(By element) {

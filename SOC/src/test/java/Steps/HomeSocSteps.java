@@ -16,11 +16,9 @@ public class HomeSocSteps {
     }
 
     @Dado("que eu estou na pagina inicial do site")
-    public void abrirNavegador() {
-        new HomeSocPage(driver).abrirNavegador("https://www.soc.com.br/");
-        this.driver = driver;
+    public void acessarPagina() {
+        new HomeSocPage(driver).abiriNavegador("https://www.soc.com.br/");
     }
-
     @Quando("clicar na lupa de pesquisa")
     public void pesquisar() {
         new HomeSocPage(driver).ClicarLupa();
