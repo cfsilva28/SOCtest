@@ -1,18 +1,15 @@
 package Base;
 
-import Utils.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class TestBase {
+public class Base {
     protected WebDriver driver;
 
     public WebDriver inicializarDriver() {
         driver = new ChromeDriver();
-        driver.get("https://www.soc.com.br/");
-        driver.manage().window().maximize();
-        Util.setupChromeDriver();
+        driver.navigate().to("https://www.soc.com.br/");
         return driver;
     }
 

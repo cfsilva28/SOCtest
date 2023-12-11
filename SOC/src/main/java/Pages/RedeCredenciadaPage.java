@@ -12,5 +12,6 @@ public class RedeCredenciadaPage{
 
     public void clicarBotaoRedeCredenciada(){
         webUtils.clicar(By.cssSelector("a[href='https://socnet.soc.com.br/'"));
+        webUtils.saveScreenshotPNG();
     }
 }

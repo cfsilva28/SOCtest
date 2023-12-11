@@ -15,12 +15,14 @@ public class SocNetSocPage {
     public void pesquisaRedeSocnet(String pesquisa) {
         webUtils.digitarTexto(By.cssSelector("input#ipt-busca-credenciado-2"), pesquisa);
         webUtils.pressEnter(By.cssSelector("input#ipt-busca-credenciado-2"));
+        webUtils.saveScreenshotPNG();
     }
 
     public void selecionarPerfil(Integer numero) {
         webUtils.esperarElementoVisivel(By.xpath("//div[contains(@class,'dados-empresa row')]"));
         webUtils.passarSobreElementoLista(By.xpath("//div[contains(@class,'dados-empresa row')]"), numero);
         webUtils.clicarBotaoListaJavaScript(By.cssSelector("[class='center btn-estreito']"), numero);
+        webUtils.saveScreenshotPNG();
     }
 
     public void exibePerfil(){

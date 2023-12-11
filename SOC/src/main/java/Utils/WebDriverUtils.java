@@ -14,29 +14,13 @@ import java.time.Duration;
 import java.util.List;
 
 public class WebDriverUtils {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private  WebDriver driver;
+    private  WebDriverWait wait;
 
     public WebDriverUtils(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
     }
-
-    public void clicar(By by) {
-        esperarElementoVisivel(by);
-        driver.findElement(by).click();
-    }
-
-    public void digitarTexto(By by, String texto) {
-        esperarElementoVisivel(by);
-        driver.findElement(by).sendKeys(texto);
-    }
-
-    public void pressEnter(By by) {
-        esperarWebElementoLocated(by);
-        driver.findElement(by).sendKeys(Keys.ENTER);
-    }
-
     public void esperarElementoVisivel(By by) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -44,14 +28,6 @@ public class WebDriverUtils {
             Assert.fail("Elemento não encontrado dentro do tempo esperado " + by + ", erro: " + e);
         }
     }
-
-    public void clicarListaDeElementos(By by, Integer numeroDaLista) {
-        List<WebElement> elements = driver.findElements(by);
-        WebElement element = elements.get(numeroDaLista);
-        esperarWebElementoClicavel(element);
-        element.click();
-    }
-
     public void esperarWebElementoClicavel(WebElement element) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -59,7 +35,6 @@ public class WebDriverUtils {
             Assert.fail("Elemento não encontrado dentro do tempo esperado: " + element + ", erro: " + e);
         }
     }
-
     public void esperarWebElementoLocated(By by) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -67,7 +42,6 @@ public class WebDriverUtils {
             Assert.fail(" Elementos não foram encontrados dentro do tempo esperado: " + by + ", erro: " + e);
         }
     }
-
     public void passarSobreElementoLista(By by, Integer numeroLista) {
         List<WebElement> elements = driver.findElements(by);
         WebElement element = elements.get(numeroLista);
@@ -81,10 +55,33 @@ public class WebDriverUtils {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
+    public void clicar(By by) {
+        esperarElementoVisivel(by);
+        driver.findElement(by).click();
+    }
+    public void clicarListaDeElementos(By by, Integer numeroDaLista) {
+        try{
+            List<WebElement> elements = driver.findElements(by);
+            WebElement element = elements.get(numeroDaLista);
+            esperarWebElementoClicavel(element);
+            element.click();
+        } catch (TimeoutException e) {
+            Assert.fail("Elemento não encontrado dentro do tempo esperado: " + by + ", erro: " + e);
+        }
+    }
+    public void digitarTexto(By by, String texto) {
+        esperarElementoVisivel(by);
+        driver.findElement(by).sendKeys(texto);
+    }
+    public void pressEnter(By by) {
+        esperarWebElementoLocated(by);
+        driver.findElement(by).sendKeys(Keys.ENTER);
+    }
 
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshotPNG() {
         Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
 }

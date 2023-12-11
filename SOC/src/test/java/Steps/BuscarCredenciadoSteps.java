@@ -1,18 +1,17 @@
 package Steps;
 
-import Base.TestBase;
+import Base.Base;
 import Pages.HomeSocPage;
 import Pages.RedeCredenciadaPage;
 import Pages.SocNetSocPage;
-import Utils.WebDriverUtils;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.After;
 import org.openqa.selenium.WebDriver;
 
-public class RedeCredenciadaSteps extends TestBase {
+public class BuscarCredenciadoSteps extends Base {
 
     private  final WebDriver driver = inicializarDriver();
 
@@ -22,24 +21,19 @@ public class RedeCredenciadaSteps extends TestBase {
 
     private SocNetSocPage socNetSocPage;
 
-    private final WebDriverUtils webUtils = new WebDriverUtils(driver);
-
-    @Given("que o usuario esteja pagina inicial do site")
+    @Given("que o usuario esta na tela de principal")
     public void que_o_usuario_esteja_na_pagina_principal() {
         homeSocPage = new HomeSocPage(driver);
-        webUtils.saveScreenshotPNG();
     }
 
     @When("clicar no menu Funcionalidades")
     public void clicar_no_menu_funcionalidades() {
         homeSocPage.clicarMenu("Funcionalidades");
-        webUtils.saveScreenshotPNG();
     }
 
     @And("clicar na opcao Rede SOCNET")
     public void clicar_na_opcao_rede_socnet() {
         homeSocPage.clicarOpcaoMenu("Rede SOCNET");
-        webUtils.saveScreenshotPNG();
     }
 
 
@@ -47,14 +41,12 @@ public class RedeCredenciadaSteps extends TestBase {
     public void clicar_no_botao_buscar_credenciados() {
         redeCredenciadaPage = new RedeCredenciadaPage(driver);
         redeCredenciadaPage.clicarBotaoRedeCredenciada();
-        webUtils.saveScreenshotPNG();
     }
 
     @And("Pesquisar {string}")
     public void pesquisar(String pesquisa) {
         socNetSocPage = new SocNetSocPage(driver);
         socNetSocPage.pesquisaRedeSocnet(pesquisa);
-
     }
 
     @And("clicar no botao Saiba Mais")
