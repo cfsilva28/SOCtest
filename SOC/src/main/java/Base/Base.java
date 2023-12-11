@@ -10,6 +10,7 @@ public class Base {
     public WebDriver inicializarDriver() {
         driver = new ChromeDriver();
         driver.navigate().to("https://www.soc.com.br/");
+        driver.manage().window().maximize();
         return driver;
     }
 

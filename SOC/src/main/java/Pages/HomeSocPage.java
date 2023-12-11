@@ -27,7 +27,6 @@ public class HomeSocPage{
     public void clicarMenu(String opcao){
         switch (opcao){
             case "Funcionalidades":
-                System.out.println("Clicando no menu");
                 webUtils.clicarListaDeElementos(By.cssSelector("a.elementor-item.has-submenu"),1);
                 webUtils.saveScreenshotPNG();
         }
@@ -35,7 +34,6 @@ public class HomeSocPage{
     public void clicarOpcaoMenu(String opcao){
         switch (opcao){
             case "Rede SOCNET":
-                System.out.println("Tentar clicar no item do menu");
                 webUtils.clicarListaDeElementos(By.cssSelector("a[href='https://www.soc.com.br/rede-credenciada-socnet/"),0);
                 webUtils.saveScreenshotPNG();
         }
