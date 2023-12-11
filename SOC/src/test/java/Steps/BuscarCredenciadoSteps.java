@@ -9,21 +9,18 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 
 public class BuscarCredenciadoSteps extends Base {
 
-    private  final WebDriver driver = inicializarDriver();
-
     private HomeSocPage homeSocPage;
 
-    private  RedeCredenciadaPage redeCredenciadaPage;
+    private RedeCredenciadaPage redeCredenciadaPage;
 
     private SocNetSocPage socNetSocPage;
 
     @Given("que o usuario esta na tela de principal")
     public void que_o_usuario_esteja_na_pagina_principal() {
-        homeSocPage = new HomeSocPage(driver);
+        homeSocPage = new HomeSocPage(inicializarDriver());
     }
 
     @When("clicar no menu Funcionalidades")
@@ -60,5 +57,7 @@ public class BuscarCredenciadoSteps extends Base {
     }
 
     @After
-    public void finalizar(){fechaDriver();}
+    public void finalizar() {
+        fechaDriver();
+    }
 }

@@ -3,25 +3,19 @@ package Steps;
 
 import Base.Base;
 import Pages.HomeSocPage;
-import Utils.WebDriverUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 
-public class HomeSocSteps extends Base {
+public class BuscaNoBlogSteps extends Base {
 
     public HomeSocPage homePage;
 
-    private  final WebDriver driver = inicializarDriver();
-
-    private final WebDriverUtils webUtils = new WebDriverUtils(driver);
-
     @Given("que o usuario esteja pagina inicial do site")
-    public void acessarPagina() {
-        homePage = new HomeSocPage(driver);
+    public void que_o_usuario_esteja_pagina_inicial_do_site() {
+        homePage = new HomeSocPage(inicializarDriver());
     }
 
     @When("clicar na lupa de pesquisa")
