@@ -1,59 +1,67 @@
-# SOCtest
-Automação de testes WEB 
+# SOCtest - Automação de Testes WEB
 
-Projeto de Automação de Testes
+## Projeto de Automação de Testes
 
-Este projeto consiste em testes de automação utilizando Selenium WebDriver e Cucumber para testar as funcionalidades do site https://www.soc.com.br/.
+Este projeto consiste em testes de automação utilizando Selenium WebDriver e Cucumber para verificar as funcionalidades do site [SOC](https://www.soc.com.br/).
 
-Pré-requisitos Certifique-se de ter o seguinte instalado em sua máquina:
-
-Java Maven Git Scoop Configuração do Ambiente
-
-Clone este repositório: git clone https://github.com/seu-usuario/nome-do-repositorio.git
-Instale o Allure Framework usando o Scoop: scoop install allure
-Executando os Testes
-
-Para executar os testes, abra um terminal na pasta do projeto e execute o seguinte comando: mvn clean test
-
-Isso irá baixar as dependências, compilar o código e executar os testes. Os resultados dos testes serão gerados no formato do Allure.
-
-Projeto de Automação de Testes
-
-Este projeto consiste em testes de automação utilizando Selenium WebDriver e Cucumber para testar as funcionalidades do site https://www.soc.com.br/.
-
-Pré-requisitos
+### Pré-requisitos
 
 Certifique-se de ter o seguinte instalado em sua máquina:
 
-Java Maven Git Scoop Configuração do Ambiente
+- **Java Development Kit (JDK) 17**
+- Maven
+- Git
+- Scoop
 
-Clone este repositório:git clone https://github.com/seu-usuario/nome-do-repositorio.git
+### Configuração do Ambiente
 
-Instale o Allure Framework usando o Scoop: scoop install allure
+1. Clone este repositório:
 
-Executando os Testes
+    ```bash
+    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    ```
 
-Para executar os testes, abra um terminal na pasta do projeto e execute o seguinte comando: mvn clean test
+2. Instale o Allure Framework usando o Scoop:
 
-Isso irá baixar as dependências, compilar o código e executar os testes. Os resultados dos testes serão gerados no formato do Allure.
+    ```bash
+    scoop install allure
+    ```
 
-Gerando e Visualizando Relatórios
+### Executando os Testes
+
+Para executar os testes, abra um terminal na pasta do projeto e execute o seguinte comando:
+
+```bash
+mvn clean test
+
+## Gerando e Visualizando Relatórios
 
 Para gerar e visualizar o relatório do Allure, execute os seguintes comandos:
 
-Gere os resultados do Allure: allure serve ou allure serve target/allure-results
-Isso abrirá uma página da web local com o relatório gerado.
-Lembre-se de que é necessário ter o Java configurado corretamente na sua máquina e a variável de ambiente JAVA_HOME apontando para a instalação do Java.
+1. Gere os resultados do Allure:
+
+    ```bash
+    allure serve target/allure-results
+    ```
+
+2. Isso abrirá uma página da web local com o relatório gerado.
+
+Lembre-se de que é necessário ter o Java configurado corretamente na sua máquina, com a variável de ambiente `JAVA_HOME` apontando para a instalação do Java.
 
 Este projeto utiliza o Cucumber para escrever cenários de teste em linguagem natural e o Selenium WebDriver para interagir com o navegador.
 
-Os testes estão organizados em duas features:
+### Estrutura do Projeto
 
-BuscarCredenciado.feature: Testa a funcionalidade de buscar credenciados no site.
-BuscarNoBlog.feature: Testa a funcionalidade de realizar pesquisas no blog do site.
-Cada feature possui cenários de teste escritos em Gherkin, e os passos dos cenários são implementados em Java nos pacotes Steps e Pages.
+- **BuscarCredenciado.feature:** Testa a funcionalidade de buscar credenciados no site.
+- **BuscarNoBlog.feature:** Testa a funcionalidade de realizar pesquisas no blog do site.
+
+Cada feature possui cenários de teste escritos em Gherkin, e os passos dos cenários são implementados em Java nos pacotes `Steps` e `Pages`.
 
 Observação: Certifique-se de que o ChromeDriver está no PATH do sistema ou ajuste o caminho no código conforme necessário.
 
-Autor
+## Autor
+
 Cesar Silva
+
+
+
